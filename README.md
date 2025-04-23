@@ -1,8 +1,10 @@
 # Basic computer science courses
 
-Take the code for free.
+This project provides example codes on the courses. It also provides some comments and explainations on how to appropoch for very beginners.
 
-## *C Programming Language*, 2020 spring
+## C Programming Language Course
+
+## Chapter 01 Introduction
 
 ### Chapter 3 Branches
 	- Guesse number
@@ -51,52 +53,14 @@ Take the code for free.
 	- Bubble sort asceding / descending
 	- Pointer as variable
 	- Using a pointer to access an array
-	- 
-
-## *Data Structure*, 2018 spring
-
-### Chapter 1 List
-	SqList, sequencial list
-	LinkNode, linked list, circular linked list
-	DLinkNode, double linked list
-
-### Chapter 2 Stack
-	SqStack, sequencial stack
-	Examples: symmetry string, post expression, mg_path (pp. 93)
-
-	LinkStNode, linked stack
-	Examples: judge a pair of brackets
-
-### Chapter 3 Queue
-	SqQueue, sequencial queue, circular queue
-	LinkQueueNode, linked queue
-
-### Chapter 4 String
-	SqString,  Brute-Force, KMP
-	LinkString
-
-### Chapter 5 Tree
-	BTNode
-	Binary tree, threaded tree, construct a binary tree, Huffman tree
-
-### Chapter 6 Graph
-	Adjacency matrix, adjacency list
-	Traverse of graphs
-	Spanning tree£¬ minimum spanning
-	Optimal path, topological sort
-
-### Chapter 7 Search
-	Lookup linear table
-	Lookup tree table
-	Find a hash table
-
-### Chapter 8 InternalSort
-	Insertion sort
-
-## Some suggestions for beginners
-	- Get a blank paper, and a pen, write down the logical structure.
-	- Prepare examples for each data structure, details examples please see header files. start at main function.
-	- Try more exercise and be skilled on those data structure.
-
+	
+	
 ## License
-	Free.
+
+MIT License
+
+Copyright (c) 2024 pyFAST Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
