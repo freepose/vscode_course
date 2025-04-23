@@ -2,6 +2,8 @@
 
 This repository contains example codes and exercises for learning the C programming language. It is designed for beginners and includes comments and explanations to help understand the concepts.
 
+大学之道，在明明德，在亲民，在止于至善。-- 《大学》
+
 ## Project Structure of **C programming language**
 
 ### Chapters and Topics
