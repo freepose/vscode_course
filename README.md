@@ -2,7 +2,7 @@
 
 This repository contains example codes and exercises for learning the C programming language. It is designed for beginners and includes comments and explanations to help understand the concepts.
 
-## Project Structure
+## Project Structure of **C programming language**
 
 ### Chapters and Topics
 The project is divided into chapters, each focusing on specific programming concepts:
@@ -52,6 +52,7 @@ The project is divided into chapters, each focusing on specific programming conc
 - Pointer basics ([e_11_2.c](c_course/e_11_2.c)).
 - Sorting strings ([e_11_1.c](c_course/e_11_1.c), [e_11_4.c](c_course/e_11_4.c)).
 - Dynamic memory allocation ([e_11_6.c](c_course/e_11_6.c)).
+
 
 ## How to Use
 1. Clone the repository.
