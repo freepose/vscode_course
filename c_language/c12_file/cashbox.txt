@@ -1,0 +1,5 @@
+301101 Zhangwen 		91
+301102 Chenhui		85
+301103 Wangweidong	76
+301104 Zhewei	 		69
+301105 Guowentao	 	55
