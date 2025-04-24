@@ -36,7 +36,6 @@ This repository contains example codes and exercises for learning the C programm
 
 ### Chapter 4: Loop
 
-- [e_4_0.c](c_language/c04_loop/e_4_0.c): Prime number check
 - [e_4_1.c](c_language/c04_loop/e_4_1.c): Estimating Pi
 - [e_4_2.c](c_language/c04_loop/e_4_2.c): Calculating averages
 - [e_4_3.c](c_language/c04_loop/e_4_3.c): GCD calculation
