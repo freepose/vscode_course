@@ -1,16 +1,16 @@
-# C02 ��C����д����
+# C02 用C语言写程序
 
-> ǧ��֮�У�ʼ�����¡�
+> 千里之行，始于足下。
 
-��Ҫע��ı��ϰ�ߣ�ע���Сд��ע����Ӣ�ģ�ע��������ע��ֺţ�ע�⻻�С�
+需要注意的编程习惯：注意大小写，注意中英文，注意缩进，注意分号，注意换行。
 
-��˫�ɶԣ��������ϸ�ڡ�
+成双成对，先主题后细节。
 
-�ؼ����������⣬�ؼ���Ҫ���ñ��
+关键：遇到问题，关键是要懂得表达。
 
-## (1) ��������
+## (1) 若干例子
 
-��2-1������Ļ����ʾһЩ��Ϣ
+例2-1：在屏幕上显示一些信息
 
 ```cpp
 // The "Hello, World!" program for c beginners.
@@ -24,23 +24,23 @@ int main()
 }
 ```
 
-С�ᣬ����main����������printf�������Լ����õ�ͷ�ļ���
+小结，介绍main函数，介绍printf函数，以及调用的头文件。
 
-ϰ�ߣ���˫�ɶԣ�ע�����������ʽ��̡�
+习惯：成双成对，注意缩进，填空式编程。
 
-��2-3�������¶�100��F ��Ӧ�������¶�
+例2-3：求华氏温度100°F 对应的摄氏温度
 
 ```cpp
 #include <stdio.h>
 
 int main()
 {
-    /* �����������ͱ�����celsius��ʾ��?�ȣ�fahr��ʾ��?�� */
+    /* 定义两个整型变量，celsius表示摄?度，fahr表示华?度 */
     int celsius, fahr;
 
-    /* ��?��?�ڷָ���������Ϳ�ִ?��� */
-    fahr = 100;                    /* �Ա���fahr ��ֵ*/
-    celsius = 5 * (fahr - 32) / 9; /* �¶�ת������*/
+    /* 空?，?于分隔变量定义和可执?语句 */
+    fahr = 100;                    /* 对变量fahr 赋值*/
+    celsius = 5 * (fahr - 32) / 9; /* 温度转换计算*/
 
     printf("fahr = %d, celsius = %d\n", fahr, celsius);
 
@@ -48,12 +48,12 @@ int main()
 }
 ```
 
-С�ᣬ���ܱ������������͡���ʽ���������Ƶ�����ʽ�����������㣬�����
+小结，介绍变量的数据类型。正式进入程序设计的三段式：声明，计算，输出。
 
-��2-4���ֶμ���ˮ�ѡ�
+例2-4：分段计算水费。
 
 ```cpp
-// �ֶκ�������
+// 分段函数介绍
 #include <stdio.h>
 
 int main(void)
@@ -77,11 +77,11 @@ int main(void)
 }
 ```
 
-С�ᣬ����scanf�������Լ�if ... else...���÷���
+小结，介绍scanf函数，以及if ... else...的用法。
 
 ## (2) Pintia
 
-### ��Ŀ2-1 Hello World!
+### 题目2-1 Hello World!
 
 ```cpp
 #include<stdio.h>
@@ -93,7 +93,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-2 Say Hello to Integers
+### 题目2-2 Say Hello to Integers
 
 ```cpp
 #include <stdio.h>
@@ -107,7 +107,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-3 ��Բ�ܳ�
+### 题目2-3 求圆周长
 
 ```cpp
 #include <stdio.h>
@@ -121,7 +121,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-4 �������
+### 题目2-4 表格输出
 
 ```cpp
 #include <stdio.h>
@@ -142,7 +142,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-5 ���������ͼ��
+### 题目2-5 输出倒三角图案
 
 ```cpp
 #include<stdio.h>
@@ -158,9 +158,9 @@ int main()
 }
 ```
 
-### ��Ŀ2-6 �������λ��
+### 题目2-6 逆序的三位数
 
-����˼·��(1) ͨ�����෽ʽ�����Զ������ض�λ����(2) ��������10���Լ�ȥ���һλ����
+解题思路：(1) 通过求余方式，可以对整数特定位数。(2) 整数除以10可以减去最后一位数。
 
 ```cpp
 #include <stdio.h>
@@ -183,7 +183,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-7 ����������ݸ�ʽ������
+### 题目2-7 混合类型数据格式化输入
 
 ```cpp
 #include <stdio.h>
@@ -200,7 +200,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-8 ��������Ϣ
+### 题目2-8 计算存款利息
 
 ```cpp
 #include <stdio.h>
@@ -217,7 +217,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-9 ���ڸ�ʽ��
+### 题目2-9 日期格式化
 
 ```cpp
 #include <stdio.h>
@@ -234,7 +234,7 @@ int main()
 }
 ```
 
-### ��Ŀ2-10 ���������ʱ��
+### 题目2-10 计算火车运行时间
 
 ```cpp
 int main()
