@@ -36,11 +36,25 @@ This repository contains example codes and exercises for learning the C programm
 
 ### Chapter 4: Loop
 
-- [e_4_1.c](c_language/c04_loop/e_4_1.c): Estimating Pi
-- [e_4_2.c](c_language/c04_loop/e_4_2.c): Calculating averages
-- [e_4_3.c](c_language/c04_loop/e_4_3.c): GCD calculation
-- [e_4_4.c](c_language/c04_loop/e_4_4.c): Prime number range
-- [e_4_8.c](c_language/c04_loop/e_4_8.c): Printing patterns
+- [e_4_1.c](c_language/c04_loop/e_4_1.c): Estimate Pi using the Gregory series.
+- [e_4_2.c](c_language/c04_loop/e_4_2.c): Calculate the average score and count the number of failing scores.
+- [e_4_3.c](c_language/c04_loop/e_4_3.c): Count the number of digits in an integer.
+- [e_4_4.c](c_language/c04_loop/e_4_4.c): Reverse the digits of an integer.
+- [e_4_5_1.c](c_language/c04_loop/e_4_5_1.c): Check if a number is a prime number (basic method).
+- [e_4_5_2.c](c_language/c04_loop/e_4_5_2.c): Check if a number is a prime number (optimized method).
+- [e_4_5_3.c](c_language/c04_loop/e_4_5_3.c): Check if a number is a prime number (optimized for odd numbers).
+- [e_4_6_1.c](c_language/c04_loop/e_4_6_1.c): Guessing game with a random number between 1 and 100.
+- [e_4_6_2.c](c_language/c04_loop/e_4_6_2.c): Guessing game with a user-defined number.
+- [e_4_7_1.c](c_language/c04_loop/e_4_7_1.c): Calculate the sum of factorials using a function.
+- [e_4_7_2.c](c_language/c04_loop/e_4_7_2.c): Calculate the sum of factorials using nested loops.
+- [e_4_7_3.c](c_language/c04_loop/e_4_7_3.c): Calculate the sum of factorials using a single loop.
+- [e_4_8_1.c](c_language/c04_loop/e_4_8_1.c): Find the maximum value from a fixed number of inputs.
+- [e_4_8_2.c](c_language/c04_loop/e_4_8_2.c): Find the maximum value from a variable number of inputs.
+- [e_4_9.c](c_language/c04_loop/e_4_9.c): Generate the Fibonacci sequence with formatted output.
+- [e_4_10.c](c_language/c04_loop/e_4_10.c): Find all prime numbers in a given range with formatted output.
+- [e_4_11_1.c](c_language/c04_loop/e_4_11_1.c): Solve the brick-moving problem using nested loops.
+- [e_4_11_2.c](c_language/c04_loop/e_4_11_2.c): Solve the brick-moving problem with optimized limits.
+- [e_4_12.c](c_language/c04_loop/e_4_12.c): Solve the coin change problem with the minimum number of coins.
 
 ### Chapter 5: Function
 
