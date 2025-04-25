@@ -2,6 +2,7 @@
 // 字符数组
 
 #include <stdio.h>
+#include <string.h> 
 
 int main()
 {
@@ -13,6 +14,11 @@ int main()
 
     char *buffer2 = "Hello World"; // 字符串常量
     printf("%s\n", buffer2);
+
+    char s1[] = "hello"; // 字符串常量
+    char s2[] = "world"; // 字符数组
+
+    printf("%d", strcmp(s1, s2));
 
     return 0;
 }
