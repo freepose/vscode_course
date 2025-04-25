@@ -1,10 +1,13 @@
+
 #include <stdio.h>
+
 int main()
 {
     int Guojia = 100;     // 郭嘉的智商
     int Zhugeliang = 100; // 诸葛亮的智商
     int Simayi;           // 司马懿的智商
     int *Caocao, *Liubei;
+
     Liubei = &Zhugeliang; // 刘备的谋士指向诸葛亮
     Caocao = &Guojia;     // 曹操的谋士指向郭嘉
     printf("曹操的谋士郭嘉的智商：%d\n", *Caocao);
@@ -16,5 +19,6 @@ int main()
     printf("司马懿的智商：%d\n", Simayi);
     printf("刘备的谋士的智商：%d\n", *Liubei);
     printf("曹操的谋士的智商：%d\n", *Caocao);
+
     return 0;
 }
