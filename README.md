@@ -1,6 +1,7 @@
 # Programming in Visual Studio Code for Beginners
 
 This repository contains example codes and exercises for learning the C programming language. It is designed for beginners, and includes explanations to help understand the concepts.
+Contributions to `vscode_course` are welcome! Please submit [issues](https://github.com/freepose/vscode_course/issues) or pull requests on GitHub.
 
 ## C Programming Language (ZJU) [1]
 
@@ -100,7 +101,7 @@ This repository contains example codes and exercises for learning the C programm
 - [e_8_2.c](c_language/c08_pointer/e_8_2.c): Demonstrate the use of address and indirect access operators.
 - [e_8_3.c](c_language/c08_pointer/e_8_3.c): Role exchange using three different swap functions (`swap1`, `swap2`, `swap3`).
 - [e_8_4.c](c_language/c08_pointer/e_8_4.c): Convert year and day of the year into the corresponding month and day.
-- [e_8_5.c](c_language/c08_pointer/e_8_5.c): Sort an array of integers in ascending order using the bubble sort algorithm.
+- [e_8_5.c](c_language/c08_pointer/e_8_5.c): Sort an array of integers in ascending order using the `bubble sort` algorithm.
 - [e_8_6.c](c_language/c08_pointer/e_8_6.c): Calculate the sum of array elements using both arrays and pointers.
 - [e_8_7.c](c_language/c08_pointer/e_8_7.c): Use pointers to calculate the number of elements and storage units in an array.
 - [e_8_8.c](c_language/c08_pointer/e_8_8.c): Compress a string by replacing consecutive identical characters with their count.
