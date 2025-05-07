@@ -1,7 +1,7 @@
 ﻿
 // Example 8-3: changes values in user-defined function
 
-// how to change values in user-defined function using pointers
+// How to change values in user-defined function using pointers
 
 #include <stdio.h>
 
