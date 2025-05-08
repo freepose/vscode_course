@@ -1,61 +1,90 @@
 
-/***********************************
- *
- * Chapter 9-2: Structs
- *
- ***********************************/
 
-// This is a simple program that demonstrates the initialization of a struct variable in C.
+// Example 9-1: struct definition, initialization and access
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-// Vairable definition and function declaration
-
-struct student
+typedef struct _student
 {
-    char name[20];     // name: a string representing the student's name
-    char number[20];   // number: a string representing the student's number
-    char address[100]; // address: a string representing the student's address
-    int english;       // english: an integer representing the student's English score
-    int math;          // math: an integer representing the student's Math score
-    int computer;      // computer: an integer representing the student's Computer score
-    float average;     // average: a float representing the student's average score
-};
+    char number[20];    // student number
+    char name[20];      // student name
+    char classroom[20]; // student classroom
+    float math;         // math score
+    float english;      // english score
+    float chinese;      // chinese score
+    float average;      // average score
+} Student;
+
+void print_student(Student *p)
+{
+    /// @brief print the information of a given student.
+    /// @param p : the pointer of a given student.
+
+    printf("Number: %s\t", p->number);
+    printf("Name: %s\t", p->name);
+    printf("Classroom: %s\t", p->classroom);
+    printf("Math: %.2f\t", p->math);
+    printf("English: %.2f\t", p->english);
+    printf("Chinese: %.2f\t", p->chinese);
+    printf("Average: %.2f\n", p->average);
+}
+
+void print_students(Student *p, int n)
+{
+    /// @brief print the information of all students.
+    /// @param p : the pointer of a given student.
+    /// @param n : the number of students.
+
+    // Header
+    printf("Number\tName\tClassroom\tMath\tEnglish\tChinese\tAverage\n");
+    printf("--------------------------------------------------------\n");
+
+    for (int i = 0; i < n; i++)
+    {
+        print_student(p + i);
+    }
+}
+
+void update_students(Student *array, int size)
+{
+    /// @brief update the average score of all students.
+    /// @param array : the pointer of a given student.
+    /// @param size : the number of students.
+
+    for (int i = 0; i < size; i++)
+    {
+        array[i].average = (array[i].math + array[i].english + array[i].chinese) / 3.0;
+    }
+}
+
+void bubble_sort(Student *array, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size - 1 - i; j++)
+        {
+            if (array[j].average > array[j + 1].average)
+            {
+                Student temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+}
+
 
 int main()
 {
-    struct student s1; // s1: a variable of type struct student
-    struct student s2;
+    Student students[70] = {{"202421511001", "Binbin Liu", "GIS 2411", 90.0, 85.0, 100.0},
+                            {"202421511002", "Langting Li", "GIS 2411", 90.0, 85.0, 98.0},
+                            {"202421511003", "Lisa Ou", "GIS 2411", 90.0, 85.0, 88.0}};
 
-    // memory set to initialize the student information
-    memset(&s1, 0, sizeof(struct student));
-
-    printf("Name: %s\tNumber: %s\tAddress: %s\tEnglish: %d\tMath: %d\tComputer: %d\tAverage: %.2f\n",
-           s1.name, s1.number, s1.address, s1.english, s1.math, s1.computer, s1.average);
-
-    // Initialize the student information
-    strcpy(s1.name, "John");
-    strcpy(s1.number, "123456");
-    strcpy(s1.address, "1234 Main St, Apt 1, New York, NY 10001");
-    s1.english = 90;
-    s1.math = 85;
-    s1.computer = 88;
-    s1.average = (s1.english + s1.math + s1.computer) / 3.0;
-
-    // Print the student information
-    printf("Name: %s\tNumber: %s\tAddress: %s\tEnglish: %d\tMath: %d\tComputer: %d\tAverage: %.2f\n",
-           s1.name, s1.number, s1.address, s1.english, s1.math, s1.computer, s1.average);
-
-    // The third initialization method: initialization while declaring the variable
-    struct student s3 = {"Alice", "654321", "5678 Elm St, Apt 2, Los Angeles, CA 90001", 95, 92, 98, 95.0};
-
-    // One more thing, initialize the student array
-    struct student students[3] = {
-        {"Alice", "654321", "5678 Elm St, Apt 2, Los Angeles, CA 90001", 95, 92, 98, 95.0},
-        {"Bob", "987654", "8765 Oak St, Apt 3, San Francisco, CA 80001", 88, 90, 85, 87.7},
-        {"Cathy", "456789", "3456 Pine St, Apt 4, San Diego, CA 70001", 92, 94, 90, 92.0}};
+    print_students(students, 3);
+    update_students(students, 3);
+    bubble_sort(students, 3);
+    print_students(students, 3);
 
     return 0;
 }

@@ -75,7 +75,6 @@ int main()
     print_array(a, n);
 
     printf("Enter the number to search: ");
-
     index = binary_search(a, n, target);
     if (index != -1)
     {

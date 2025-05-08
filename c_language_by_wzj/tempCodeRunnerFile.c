@@ -1,1 +1,2 @@
-cols
+
+    return 0;
