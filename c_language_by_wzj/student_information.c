@@ -1,115 +1,174 @@
 /*****
  *
- *  Student information system
+ *  Student information system for GIS2411 and GIS2412
+ *
+ *  Author: Zhijin Wang
+ *  Date: 2023-10-01
+ *  Description: This program manages student information, including input, output, and sorting by average score.
  *
  */
 
 #include <stdio.h>
 #include <string.h>
 
-struct student
+// ç­çº§,å­¦å·,å§“å,æ€§åˆ«,å‡ºç”Ÿå¹´æœˆ,ç”µè¯å·ç ,å®¶åº­åœ°å€,çˆ±å¥½,æ“…é•¿
+struct _student
 {
-    char number[20];   // Ñ§ºÅ
-    char name[20];     // ÐÕÃû£ºÒ»¸öºº×ÖÕ¼Á½¸ö×Ö½Ú
-    char class[20];    // °à¼¶
-    char gender[4];    // ÐÔ±ð
-    char phone[20];    // ÊÖ»úºÅ
-    char address[100]; // ¼ÒÍ¥µØÖ·
-    char interest[20]; // ÐËÈ¤
+    char clbum[20];   // ç­çº§
+    char number[20];  // å­¦å·
+    char name[20];    // å§“å
+    char gender[3];   //
+    char birth[20];   // å‡ºç”Ÿå¹´æœˆ
+    char phone[20];   // ç”µè¯å·ç 
+    char address[50]; // å®¶åº­åœ°å€
+    char hobby[50];   // çˆ±å¥½
+    char skill[50];   // æ“…é•¿
 };
 
-typedef struct student Student;
+typedef struct _student Student;
 
-void read_students(char *csv_filename, Student *pss, int *p_num_students)
+void get_student_info(char *filename, Student *p, int *n)
 {
-    // :param csv_filename: the csv file name
-    // :param pss: the pointer of the student array
-    // :param p_num_students: the pointer of the number of students, _num_students varies as the csv file
-    FILE *fp = fopen(csv_filename, "r");
+    FILE *fp = fopen(filename, "r");
     if (fp == NULL)
     {
-        printf("Error: cannot open file %s\n", csv_filename);
+        printf("Error opening file %s\n", filename);
         return;
     }
 
-    char line[1024];
-    // skip the first line
-    fgets(line, 1024, fp);
+    char line[1024] = {0};
+    fgets(line, 1024, fp); // Skip the first line (header)
 
     int i = 0;
     while (fgets(line, 1024, fp))
     {
-        sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%s",
-               pss[i].number, pss[i].name, pss[i].class, pss[i].gender, pss[i].phone, pss[i].address, pss[i].interest);
-        i++;
-    }
-    *p_num_students = i; // update the number of students
-}
+        // Remove trailing newline character
+        line[strcspn(line, "\r\n")] = 0;
 
-void print_a_student(Student *ps)
-{
-    // print a student information, use tab to separate the fields, and use a new line to separate the students
-    printf("%s\t", ps->number);
-    printf("%s\t", ps->name);
-    printf("%s\t", ps->class);
-    printf("%s\t", ps->gender);
-    printf("%s\t", ps->phone);
-    printf("%s\t", ps->address);
-    printf("%s\n", ps->interest);
-}
+        // Initialize all fields to empty strings
+        memset(&p[i], 0, sizeof(Student));
 
-void print_students(Student *pss, int n)
-{
-    // print all students information
-    for (int i = 0; i < n; i++)
-    {
-        print_a_student(pss + i);
-    }
-}
+        // Parse the line, allowing missing fields
+        int fields = sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]",
+                            p[i].clbum, p[i].number, p[i].name, p[i].gender, p[i].birth,
+                            p[i].phone, p[i].address, p[i].hobby, p[i].skill);
 
-void sort_students(Student *pss, int n)
-{
-    // sort the students by a struct member variable, the sort algorithm is bubble sort
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
+        // Fill missing fields with default values
+        if (fields < 9)
         {
-            if (strcmp(pss[j].address, pss[j + 1].address) > 0)
+            for (int j = fields; j < 9; j++)
             {
-                Student temp = pss[j];
-                pss[j] = pss[j + 1];
-                pss[j + 1] = temp;
+                switch (j)
+                {
+                case 7: strcpy(p[i].hobby, "N/A"); break;
+                case 8: strcpy(p[i].skill, "N/A"); break;
+                }
             }
         }
+
+        i++;
+    }
+    *n = i; // Update the number of students
+
+    fclose(fp);
+}
+
+void print_table_header()
+{
+    /// @brief Print table header
+    printf("Class\tNumber\tName\tGender\tBirth\tPhone\tAddress\tHobby\tSkill\n");
+    printf("---------------------------------------------------------------\n");
+}
+
+void print_student_info(Student *p, int n)
+{
+    /// @brief Print student information
+    /// @param stu student pointer
+    /// @param n number of students
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s\t", p[i].clbum);
+        printf("%s\t", p[i].number);
+        printf("%s\t", p[i].name);
+        printf("%s\t", p[i].gender);
+        printf("%s\t", p[i].birth);
+        printf("%s\t", p[i].phone);
+        printf("%s\t", p[i].address);
+        printf("%s\t", p[i].hobby);
+        printf("%s\n", p[i].skill);
     }
 }
 
-void search_stduent_address(Student *pss, int n, char *target)
+int find_student_by_number(Student *p, int n, char *target_number)
 {
-    // Print student address contains target strings
+    /// @brief Find student by number using linear search
+    /// @param stu student pointer
+    /// @param n number of students
+    /// @param target_number target student number
+
     for (int i = 0; i < n; i++)
     {
-        if (strstr(pss[i].address, target))
+        if (strcmp(p[i].number, target_number) == 0)
         {
-            print_a_student(pss + i);
+            return i; 
+        }
+    }
+    return -1; // Not found
+}
+
+void sort_by_phone(Student *p, int n)
+{
+    /// @brief Sort students by phone number using selection sort
+    /// @param stu student pointer
+    /// @param n number of students
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        int min_index = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (strcmp(p[j].phone, p[min_index].phone) < 0)
+            {
+                min_index = j;
+            }
+        }
+        if (min_index != i)
+        {
+            Student temp = p[i];
+            p[i] = p[min_index];
+            p[min_index] = temp;
         }
     }
 }
 
 int main()
 {
-    Student ss[100];
-    int num_students = 1;
-    char csv_filename[] = "data/wd2411-dz2411.csv";
+    Student students[100];
+    int n = 0;
+    char filename[100] = "D://study//gis2411-2412.csv";
 
-    read_students(csv_filename, ss, &num_students);
-    // print_students(ss, num_students);
+    char* target_number = "202421511007"; 
 
-    sort_students(ss, num_students);
-    // printf("\nAfter sorting:\n");
-    // print_students(ss, num_students);
+    memset(students, 0, sizeof(students)); // Initialize the student array
+    get_student_info(filename, students, &n);
 
-    search_stduent_address(ss, num_students, "¸£ÖÝ");
+    print_table_header();
+    print_student_info(students, n);
+
+    int index = find_student_by_number(students, n, target_number);
+    if (index != -1)
+    {
+        printf("Target number: %s, Student found: %s\n", target_number, students[index].name);
+    }
+    else
+    {
+        printf("Student with number %s not found.\n", target_number);
+    }
+
+    sort_by_phone(students, n);
+    print_table_header();
+    print_student_info(students, n);
 
     return 0;
 }
