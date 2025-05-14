@@ -39,13 +39,16 @@ int main()
 #include <stdio.h>
 #include <memory.h>
 
-typedef struct // 类型重定义
+struct _student // 类型重定义
 {
     char number[10];    // 学号
     char name[10];      // 姓名
     int math, english, history; //成绩
     float average;
-} Student;
+};
+
+typedef struct _student Student;
+
 
 void print_a_student(Student *ps)
 {
@@ -165,7 +168,7 @@ void read_students(char *csv_filename, StudentType *p, int *n)
 
 void sort_by_student_id(StudentType *p, int n)
 {
-    // Select sort
+    // Selection sort
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = i + 1; j < n; j++)

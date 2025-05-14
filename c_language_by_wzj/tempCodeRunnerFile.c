@@ -1,2 +1,1 @@
-
-    return 0;
+print_diamond
