@@ -7,7 +7,7 @@
 
 int main()
 {
-    int A, N;
+    int A, N, len = 0;
     int *sum_array = 0;
 
     scanf("%d %d", &A, &N);
@@ -17,7 +17,6 @@ int main()
         printf("0");
         return 0;
     }
-    
 
     sum_array = (int *)malloc(sizeof(int) * (N + 1));
     memset(sum_array, 0, sizeof(int) * (N + 1));  
@@ -28,26 +27,19 @@ int main()
         int temp = (N - i) * A + carry;
         sum_array[i] = temp % 10;
         carry = temp / 10;
+        len++;
     }
 
     if (carry > 0)
     {
         sum_array[N] = carry;
+        len++;
     }
 
     // reverse output: print values from index N to index 0 when the first zero is encountered
-    int first_zero = 0;
     for (int i = N; i >= 0; i--)
     {
-        if (first_zero == 0 && sum_array[i] > 0)
-        {
-            first_zero = 1;
-        }
-
-        if (first_zero == 1)
-        {
-            printf("%d", sum_array[i]);
-        }
+        printf("%d", sum_array[i]);
     }
 
     return 0;
