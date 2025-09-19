@@ -28,6 +28,26 @@ int main()
 
 习惯：成双成对，注意缩进，填空式编程。
 
+反思：（1）什么是空程序？空程序由什么组成？
+
+例2-2：在屏幕上显示两个短句
+
+``` cpp
+// print two sentences: the use of '\n', 转义字符
+#include <stdio.h>
+
+int main()
+{
+    printf("Programming is fun. \n");
+    printf("And programming in C is even more fun!\n");
+    return 0;
+}
+```
+
+小结：大小敏感；空格敏感；中英文敏感。
+
+问题：可以压缩成一行printf()?
+
 例2-3：求华氏温度100°F 对应的摄氏温度
 
 ```cpp
