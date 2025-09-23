@@ -8,6 +8,8 @@
 
 关键：遇到问题，关键是要懂得表达。
 
+总结：这章主要介绍C程序，包括三种程序结构。(a) 顺序结构；(b) 分支结构；(c) 循环结构；
+
 ## (1) 若干例子
 
 例2-1：在屏幕上显示一些信息
@@ -98,6 +100,40 @@ int main(void)
 ```
 
 小结，介绍scanf函数，以及if ... else...的用法。
+
+例2-6：温度转化表
+
+``` cpp
+// 例2-6：温度转化表
+
+#include <stdio.h>
+
+int main()
+{
+    int lower = 30, upper = 35, fahr; // the boundary of fahr -> celsius table
+
+    scanf("%d %d", &lower, &upper);
+
+    for (fahr = lower; fahr <= upper; fahr = fahr + 1)
+    {
+        printf("%d %.1f\n", fahr, 5.0 / 9 * (fahr - 32));
+    }
+
+    return 0;
+}
+```
+
+```mermaid
+flowchart TD
+  A([Start]) --> B[Initialize defaults: lower=30, upper=35]
+  B --> C[Read lower and upper]
+  C --> D[Set fahr = lower]
+  D --> E{fahr <= upper?}
+  E -- Yes --> F[print fahr and celsius]
+  F --> G[fahr = fahr + 1]
+  G --> E
+  E -- No --> H([End: return 0])
+```
 
 ## (2) Pintia
 
