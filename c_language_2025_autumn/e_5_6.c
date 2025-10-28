@@ -2,7 +2,7 @@
 // Example 5-6
 
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
 void print_up_triangle(int n)
 {
@@ -55,7 +55,7 @@ void print_diamond(int n)
 
 int main()
 {
-    int n = 10;
+    int n = 9; // Must be an odd number
     int mid = n / 2 + 1;
 
     for (int i = 1; i <= n; i++)
@@ -67,7 +67,7 @@ int main()
             printf(" ");
         }
 
-        int stars = 2 * (n - spaces - 3) - 1;
+        int stars = 2 * (mid - spaces) - 1; // 修改：用mid计算星号数量
         for (int k = 1; k <= stars; k++)
         {
             if (k == 1 || k == stars)
