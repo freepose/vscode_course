@@ -23,7 +23,7 @@ int is(int number)
         sum += number % 10;
         number /= 10;
     }
-    return sum == 5;
+    return sum == 5; 
 }
 
 void count_sum(int a, int b)
