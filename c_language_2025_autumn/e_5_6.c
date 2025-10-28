@@ -53,9 +53,9 @@ void print_diamond(int n)
     print_down_triangle(mid - 1);
 }
 
-int main()
+
+void print_hollow_diamond(int n)
 {
-    int n = 9; // Must be an odd number
     int mid = n / 2 + 1;
 
     for (int i = 1; i <= n; i++)
@@ -82,6 +82,17 @@ int main()
 
         printf("\n");
     }
+}
+
+int main()
+{
+    int n = 9; // Must be an odd number
+    
+    print_diamond(n);
+    printf("\n");
+
+    print_hollow_diamond(n);
+    printf("\n");
 
     return 0;
 }
