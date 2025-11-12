@@ -1,7 +1,6 @@
 ﻿
 // Example 7-4: Find the maximum value in an array (Brute Force)
 
-
 #include <stdio.h>
 
 int main()
@@ -21,25 +20,25 @@ int main()
     // Selection sort based on finding maximum value
     for (int i = 0; i < n - 1; i++)
     {
-       int max_index = i;
-       for (int j = i + 1; j < n; j++)
-       {
+        int max_index = i;
+        for (int j = i + 1; j < n; j++)
+        {
             if (arr[max_index] < arr[j])
             {
                 max_index = j;
             }
-       }
+        }
 
-       // Swap the found maximum element with the first element
-         if (max_index != i)
-         {
-                int temp = arr[i];
-                arr[i] = arr[max_index];
-                arr[max_index] = temp;
-         }
+        // Swap the found maximum element with the first element
+        if (max_index != i)
+        {
+            int temp = arr[i];
+            arr[i] = arr[max_index];
+            arr[max_index] = temp;
+        }
     }
 
-        for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         printf("arr[%d] = %d\n", i, arr[i]);
     }
