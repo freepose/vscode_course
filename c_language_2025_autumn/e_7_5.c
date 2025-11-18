@@ -1,5 +1,5 @@
 ﻿
-// Example 7-4: Find the maximum value in an array (Brute Force)
+// Example 7-5: Selection Sort to arrange an array in descending order
 
 #include <stdio.h>
 
