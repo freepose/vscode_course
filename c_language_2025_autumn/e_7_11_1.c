@@ -15,7 +15,7 @@ void print_char_array(char arr[], int n)
 int main()
 {
     char str[] = "Hello";
-    char str2[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+    char str2[20] = {'H', 'e', 'l', 'l', 'o', '\0'};
 
     print_char_array(str, 5);
     printf("\n");
