@@ -23,5 +23,9 @@ int main()
     printf("%p\n", p);
     printf("%d\n", *p); // value of n through pointer p
 
+    // If we change *p, the value of n will also change
+    *p = 10;
+    printf("%d\n", n);
+
     return 0;
 }
