@@ -1,73 +1,144 @@
-ï»¿
 
-// Example 9-1: Structure definition and usage
+
+// Example 9-2: Ñ§Éú³É¼¨ÅÅĞò
+
+/*
+Ñ§ºÅ    	    ĞÕÃû    	    ËùÊô±êÇ©    	³É¼¨£¨ĞéÄâ£©
+202321182020	ÀîÊéâù	¼ÆËã2411	64
+202421002078	ºÎ»Ô	¼ÆËã2513	73
+202421063061	ÕÅÆôº½	¼ÆËã2512	91
+202421093021	Íõ¼ÑÔ£	¼ÆËã2511	64
+202521331001	Ö£Î°ç÷	¼ÆËã2511	79
+202521331002	ÍõÔÂÑô	¼ÆËã2511	67
+202521331003	×ŞÔÃ	¼ÆËã2511	70
+202521331004	³Â¾²Ïæ	¼ÆËã2511	88
+202521331005	ÁÖ³½µt	¼ÆËã2511	63
+202521331006	ÕÔè÷Ï£	¼ÆËã2511	64
+202521331007	ÕÅÀö¾ê	¼ÆËã2511	87
+202521331008	×¯Óê¼Ñ	¼ÆËã2511	77
+202521331009	³ÂÈçóŞ	¼ÆËã2511	96
+202521331010	³Ø½¨ºè	¼ÆËã2511	81
+202521331011	ÖìÈñ½Ü	¼ÆËã2511	69
+202521331012	ÀÉ×ÓÇ«	¼ÆËã2511	78
+202521331013	ÁõÊ«¿­	¼ÆËã2511	90
+202521331014	²·½¨ºè	¼ÆËã2511	96
+202521331015	Áõ¼Îºê	¼ÆËã2511	61
+202521331016	ÁõÃ÷äÁ	¼ÆËã2511	79
+202521331017	ÁÖ³¿Ğñ	¼ÆËã2511	80
+202521331018	¹¢ÌìÓî	¼ÆËã2511	83
+202521331019	Îâ¿¡ºÀ	¼ÆËã2511	72
+202521331020	ÀîË¼Ô´	¼ÆËã2511	82
+ */
 
 #include <stdio.h>
 #include <string.h>
 
-typedef struct _score
-{
-    float math;
-    float english;
-    float science;
-    float history;
-
-    float average;
-} Score;
-
-typedef struct _student
-{
+typedef struct _student{
     char number[20];
     char name[20];
-    char gender;
-    int age;
-    char address[50];
-    char phone[15];
-    Score scores;   // member variable of structure type Score
+    char cls[20];
+    int score;
 } Student;
 
-void print_student_info(Student *p_student, int is_line)
+void print_header()
 {
-    if (is_line)
+    printf("Ñ§ºÅ\t\t\t");
+    printf("ĞÕÃû\t");
+    printf("ËùÊô±êÇ©\t");
+    printf("³É¼¨\n");
+    printf("-----------------------------------------------------\n");
+}
+
+void print_student_info(Student *p_student)
+{
+    printf("%s\t", p_student->number);
+    printf("%s\t", p_student->name);
+    printf("%s\t", p_student->cls);
+    printf("%d\n", p_student->score);
+}
+
+void print_student_array(Student students[], int size)
+{
+    print_header();
+    for (int i = 0; i < size; i++)
     {
-        printf("%-30s", p_student->number);
-        printf("%-15s", p_student->name);
-        printf("%-6c", p_student->gender);
-        printf("%-4d", p_student->age);
-        printf("%-30s", p_student->address);
-        printf("%-15s", p_student->phone);
-        printf("%-6.2f %-8.2f %-8.2f %-8.2f %-8.2f\n",
-               p_student->scores.math,
-               p_student->scores.english,
-               p_student->scores.science,
-               p_student->scores.history,
-               p_student->scores.average);
+        print_student_info(&students[i]);
     }
-    else
+}
+
+
+void sort_students_by_number_asc(Student students[], int size)
+{
+    // Bubble Sort
+    for (int i = 0; i < size - 1; i++)
     {
-        printf("Student Number: %s\n", p_student->number);
-        printf("Name: %s\n", p_student->name);
-        printf("Gender: %c\n", p_student->gender);
-        printf("Age: %d\n", p_student->age);
-        printf("Address: %s\n", p_student->address);
-        printf("Phone: %s\n", p_student->phone);
+        for (int j = 0; j < size - 1 - i; j++)
+        {
+            if (strcmp(students[j].number, students[j + 1].number) > 0)
+            {
+                Student temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void sort_students_by_score_asc(Student students[], int size)
+{
+    // Bubble Sort
+    for (int i = 0; i < size - 1; i++)
+    {
+        for (int j = 0; j < size - 1 - i; j++)
+        {
+            if (students[j].score > students[j + 1].score)
+            {
+                Student temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
     }
 }
 
 int main()
 {
-    Student stu1 = {
-        "2025001",
-        "Alice Smith",
-        'F',
-        20,
-        "123 Main St, Anytown",
-        "555-1234",
-        {90, 95, 100}};
+    Student students[] = {
+        {"202321182020", "ÀîÊéâù", "¼ÆËã2411", 64},
+        {"202421002078", "ºÎ»Ô", "¼ÆËã2513", 73},
+        {"202421063061", "ÕÅÆôº½", "¼ÆËã2512", 91},
+        {"202421093021", "Íõ¼ÑÔ£", "¼ÆËã2511", 64},
+        {"202521331001", "Ö£Î°ç÷", "¼ÆËã2511", 79},
+        {"202521331002", "ÍõÔÂÑô", "¼ÆËã2511", 67},
+        {"202521331003", "×ŞÔÃ", "¼ÆËã2511", 70},
+        {"202521331004", "³Â¾²Ïæ", "¼ÆËã2511", 88},
+        {"202521331005", "ÁÖ³½µt", "¼ÆËã2511", 63},
+        {"202521331006", "ÕÔè÷Ï£", "¼ÆËã2511", 64},
+        {"202521331007", "ÕÅÀö¾ê", "¼ÆËã2511", 87},
+        {"202521331008", "×¯Óê¼Ñ", "¼ÆËã2511", 77},
+        {"202521331009", "³ÂÈçóŞ", "¼ÆËã2511", 96},
+        {"202521331010", "³Ø½¨ºè", "¼ÆËã2511", 81},
+        {"202521331011", "ÖìÈñ½Ü", "¼ÆËã2511", 69},
+        {"202521331012", "ÀÉ×ÓÇ«", "¼ÆËã2511", 78},
+        {"202521331013", "ÁõÊ«¿­", "¼ÆËã2511", 90},
+        {"202521331014", "²·½¨ºè", "¼ÆËã2511", 96},
+        {"202521331015", "Áõ¼Îºê", "¼ÆËã2511", 61},
+        {"202521331016", "ÁõÃ÷äÁ", "¼ÆËã2511", 79},
+        {"202521331017", "ÁÖ³¿Ğñ", "¼ÆËã2511", 80},
+        {"202521331018", "¹¢ÌìÓî", "¼ÆËã2511", 83},
+        {"202521331019", "Îâ¿¡ºÀ", "¼ÆËã2511", 72},
+        {"202521331020", "ÀîË¼Ô´", "¼ÆËã2511", 82}
+    };
 
-    // memset(&stu1, 0, sizeof(Student));
+    int n = sizeof(students) / sizeof(students[0]);
 
-    print_student_info(&stu1, 1);
+    // print_student_array(students, n);
+    // sort_students_by_number_asc(students, n);
+    // print_student_array(students, n);
+
+    print_student_info(&students[12]);
+    students[12].score = 100;
+    print_student_info(&students[12]);
 
     return 0;
 }
