@@ -66,7 +66,6 @@ void print_student_array(Student students[], int size)
     }
 }
 
-
 void sort_students_by_number_asc(Student students[], int size)
 {
     // Bubble Sort
