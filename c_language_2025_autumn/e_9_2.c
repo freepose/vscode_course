@@ -57,7 +57,7 @@ void print_student_info(Student *p_student)
     printf("%d\n", p_student->score);
 }
 
-void print_student_array(Student students[], int size)
+void print_student_array(Student *students, int size)
 {
     print_header();
     for (int i = 0; i < size; i++)
