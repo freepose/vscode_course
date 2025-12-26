@@ -21,13 +21,23 @@ void swap2(int *x, int *y)
     *y = temp;
 }
 
+void swap3(int &x, int &y)
+{
+    // from real parameters to formal parameters: delivery by reference
+    printf("Inside swap function before swap: x = %d, y = %d\n", x, y);
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
 int main()
 {
     int a = 2, b = 3;
     printf("Before swap: a = %d, b = %d\n", a, b);
 
     // swap1(a, b);
-    swap2(&a, &b);
+    // swap2(&a, &b);
+    swap3(a, b);
 
     printf("After swap: a = %d, b = %d\n", a, b);
 

@@ -1,5 +1,5 @@
 ﻿
-// Example 11-2: two-level pointer
+// Example 11-2: two-level pointer, i.e, pointer to pointer 
 
 #include <stdio.h>
 #include <string.h>
