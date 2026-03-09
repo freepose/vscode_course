@@ -2,17 +2,15 @@
 
 int main()
 {
-    int num_january;
-    int num_february;
-    int num_march;
+    int a, b, c;
 
-    float num_average;
+    float avg;
 
-    printf("Enter the sales in January, February, and March: ");
-    scanf("%d %d %d", &num_january, &num_february, &num_march);
+    printf("Enter three integers: ");
+    scanf("%d %d %d", &a, &b, &c);
 
-    num_average = (num_january + num_february + num_march) / 3.0;
-    printf("The average = %f\n", num_average);
+    avg = (a + b + c) / 3.0;
+    printf("The average is: %f\n", avg);
 
     return 0;
 }
