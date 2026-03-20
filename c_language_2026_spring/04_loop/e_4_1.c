@@ -7,13 +7,13 @@
 int main()
 {
     int sum = 0;
-    int start = 1, end = 100;
+    int start = 0, end = 100;
     int i = start;
 
     while (i <= end)
     {
         sum += i; // sum = sum + i;
-        i += 1; // Move to the next number
+        i += 4; // Move to the next number
     }
 
     printf("The sum from %d to %d is: %d\n", start, end, sum);

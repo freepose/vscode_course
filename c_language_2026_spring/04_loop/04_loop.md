@@ -39,3 +39,68 @@ while (condition) {
 }
 ```
 
+## 4. 循环累计法：求1到100的和
+
+```c
+#include <stdio.h>
+
+int main() 
+{
+    int sum = 0; // 初始化累加器
+    for (int i = 1; i <= 100; i++) { // 循环从1到100
+        sum += i; // 累加当前数值
+    }
+    printf("1到100的和是: %d\n", sum); // 输出结果
+    return 0;
+}
+```
+
+## 5. 循环累乘法：求1到6的阶乘
+
+```c
+#include <stdio.h>
+
+int main() 
+{
+    int factorial = 1; // 初始化累乘器
+    for (int i = 1; i <= 6; i++) { // 循环从1到6
+        factorial *= i; // 累乘当前数值
+    }
+    printf("1到6的阶乘是: %d\n", factorial); // 输出结果
+    return 0;
+}
+```
+
+## 6. 循环标记法：判断素数
+
+什么是素数？素数是指大于1的自然数，除了1和它本身外，不能被其他自然数整除的数。
+
+``` cpp
+
+// is prime number: 循环标记法
+
+#include <stdio.h>
+
+int main()
+{
+    int n = 6;
+
+    int i;
+    int is_prime = 1; // Assume n is prime
+
+    scanf("%d", &n);
+
+    for (i = 2; i < n; i++)
+    {
+        if (n % i == 0)
+        {
+            is_prime = 0;
+            break;
+        }        
+    }
+
+    printf("%d is %s prime number.\n", n, is_prime ? "a" : "not a");
+
+    return 0;
+}
+```
