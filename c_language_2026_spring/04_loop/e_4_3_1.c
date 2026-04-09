@@ -5,17 +5,16 @@
 
 int main()
 {
-    int n = 100, sign = 1;
-    double sum = 0.0, item = 0;
+    int n = 10000, sign = 1;
+    float sum = 0;
 
     for (int i = 1; i <= n; i++)
     {
-        item = 1.0 * sign / i;
-        sum = sum + item;
+        sum += sign * 1.0 / i ;
         sign = -sign;
     }
 
-    printf("Sum = %f\n", sum);
+    printf("%f\n", sum);
 
     return 0;
 }

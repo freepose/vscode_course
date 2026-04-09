@@ -2,38 +2,32 @@
 #include <stdio.h>
 #include <math.h>
 
-// 自定义的幂函数
-int pow_func(int a, int x)
+void say_hello()
 {
-    for (int i = 1; i < x; i++)
-    {
-        a *= a;
-    }
-    return a;
+    printf("Hello world!");
 }
 
-int leap_year(int year)
+int fact(int n)
 {
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+    int _fact = 1;
+    for (int i = 1; i <= n; i++)
     {
-        return 1; // 闰年
+        _fact *= i;
     }
-    else
-    {
-        return 0; // 平年
-    }
+
+    return _fact;
 }
 
 int main()
 {
-    int a = 5;
-    int x = 2;
-    int year = 2026;
-    
-    printf("%d^%d = %d\n", a, x, (int)pow(a, x));
-    printf("%d^%d = %d\n", a, x, pow_func(a, x));
+    // float y = 0, a = 2.5, x = 3;
 
-    printf("year %d is %s\n", year, leap_year(year) ? "leap year" : "not leap year");
+    // printf("%f", pow(a, x));
+
+    int n1 = 5, n2 = 6;
+    printf("%d! = %d\n", n1, fact(n1));
+    
+    printf("%d! = %d\n", n2, fact(n2));
 
     return 0;
 }

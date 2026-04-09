@@ -1,22 +1,21 @@
 ﻿
-// Sum 1 to n using while loop
-// 循环累计法
+
+// Sum from 1 to 100，循环累计法
 
 #include <stdio.h>
 
 int main()
 {
+    int n = 100;
     int sum = 0;
-    int start = 0, end = 100;
-    int i = start;
 
-    while (i <= end)
+    for (int i = 1; i <= n;)
     {
-        sum += i; // sum = sum + i;
-        i += 4; // Move to the next number
+        sum += i;
+        i = i + 1;
     }
 
-    printf("The sum from %d to %d is: %d\n", start, end, sum);
+    printf("The sum from 1 to %d is %d\n", n, sum);
 
     return 0;
 }
