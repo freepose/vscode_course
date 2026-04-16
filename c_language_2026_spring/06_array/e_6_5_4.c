@@ -3,6 +3,22 @@
 
 #define N 10
 
+int find_max_value(int a[], int n)
+{
+    // return the max value of the array
+    int max_index = 0;
+    int max_value = a[0];
+    for (int i = 1; i < N ; i++)
+    {
+        if (max_value > a[i])
+        {
+            max_value = a[i];
+            max_index = i;
+        }
+    }
+
+}
+
 void selection_sort(int a[], int n)
 {
     for (int j = 0; j < N - 1; j++)
