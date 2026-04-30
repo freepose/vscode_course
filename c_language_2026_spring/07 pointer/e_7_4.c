@@ -1,5 +1,5 @@
 ﻿
-// swap two numbers in a function
+//指针作为函数参数 swap two numbers in a function
 
 #include <stdio.h>
 

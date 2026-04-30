@@ -1,4 +1,7 @@
-﻿#include <stdio.h>
+﻿
+// Example 7-1
+
+#include <stdio.h>
 
 int main()
 {
