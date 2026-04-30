@@ -17,6 +17,5 @@ int main()
         printf("%c(%d)\t", alphabet[i], (int)alphabet[i]);
     }
 
-
     return 0;
 }

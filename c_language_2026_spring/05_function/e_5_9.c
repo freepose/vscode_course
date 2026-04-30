@@ -1,4 +1,6 @@
 ﻿
+// Example 5-9: recursive function
+
 #include <stdio.h>
 
 int fact_iter(int);

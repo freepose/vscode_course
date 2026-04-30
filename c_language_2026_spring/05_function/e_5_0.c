@@ -2,32 +2,53 @@
 #include <stdio.h>
 #include <math.h>
 
-void say_hello()
+void print_hello()
 {
-    printf("Hello world!");
+    printf("Hello, world!\n"); // built-in function
 }
 
-int fact(int n)
+double fact_iter(int n)
 {
-    int _fact = 1;
-    for (int i = 1; i <= n; i++)
+    double f = 1.0;
+
+    for (int i = 2; i <= n; i++)
     {
-        _fact *= i;
+        f *= i;
     }
 
-    return _fact;
+    return f;
+}
+
+double fact_recur(int n)
+{
+    if (n == 1 || n == 0)
+    {
+        return 1;
+    }
+
+    return n * fact_recur(n - 1);
+}
+
+int is_prime(int n)
+{
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 int main()
 {
-    // float y = 0, a = 2.5, x = 3;
+    int n = 10;
 
-    // printf("%f", pow(a, x));
+    printf("%d! = %.0lf\n", n, fact_iter(n));
+    printf("%d! = %.0lf\n", n, fact_recur(n));
 
-    int n1 = 5, n2 = 6;
-    printf("%d! = %d\n", n1, fact(n1));
-    
-    printf("%d! = %d\n", n2, fact(n2));
+    // printf("%d is %s prime number\n", n, is_prime(n) == 1 ? "a" : "not a");
 
     return 0;
 }
