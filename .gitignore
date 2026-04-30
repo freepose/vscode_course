@@ -2,3 +2,4 @@
 build/
 *.exe
 tempCodeRunnerFile.c
+.DS_Store
