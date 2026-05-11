@@ -1,29 +1,33 @@
 ﻿
-//指针作为函数参数 swap two numbers in a function
+// 交换两个数
 
 #include <stdio.h>
 
 void swap1(int f, int s)
 {
-    int t = f;
+    int temp = f;
     f = s;
-    s = t;
+    s = temp;
+
 }
 
-void swap2(int* f, int* s)
+void swap2(int *p1, int *p2)
 {
-    int t = *f;
-    *f = *s;
-    *s = t;
+    int temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
 }
 
 int main()
 {
-    int a = 1, b = 3;
+    int first = 1, second = 2;
 
-    printf("a = %d, b = %d\n", a, b);
-    swap2(&a, &b);
-    printf("a = %d, b = %d\n", a, b);
+    printf("first = %d, second = %d\n", first, second);
+
+    // swap1(first, second);
+    swap2(&first, &second);
+
+    printf("first = %d, second = %d\n", first, second);
 
     return 0;
 }
