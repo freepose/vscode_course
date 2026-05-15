@@ -16,6 +16,9 @@ typedef struct _student
 void initial_students(Student *p, int *n)
 {
     // Read from file / console
+    Student temp = {"test123", "testtest12", 25, "testtest12", 88};
+    p[3] = temp;
+    (*n)++;
 }
 
 void print_a_student(Student *p)
@@ -37,9 +40,9 @@ void sort_by_average_ascend(Student *p, int n)
 
 }
 
-int find_student(Student *p, int n, char *name)
+int find_student_by_name(Student *p, int n, char *name)
 {
-    return -1;
+    return -1; 
 }
 
 int main()
