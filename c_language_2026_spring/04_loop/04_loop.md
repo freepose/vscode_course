@@ -55,6 +55,30 @@ int main()
 }
 ```
 
+或者，更容易懂的写法：
+
+``` cpp
+// sum(start, end, step): 循环累计法
+
+#include <stdio.h>
+
+int main()
+{
+	int start = 1, end = 100, step = 3;
+	int i, sum = 0;
+	
+	for (i = start; i <= end; i += step)
+	{
+		sum += i;
+	}
+	
+	printf("sum(%d, %d, %d) = %d", start, end, step, sum);
+    
+    return 0;
+}
+
+```
+
 ## 5. 循环累乘法：求1到6的阶乘
 
 ```c
@@ -67,6 +91,28 @@ int main()
         factorial *= i; // 累乘当前数值
     }
     printf("1到6的阶乘是: %d\n", factorial); // 输出结果
+    return 0;
+}
+```
+或者，更容易懂的写法：
+
+``` cpp
+
+#include <stdio.h>
+
+int main()
+{
+	int start = 1, end = 100, step = 3;
+	int i = start, sum = 0;
+
+    while (i <= end)
+    {
+        sum += i;
+        i += step;
+    }
+
+    printf("sum(%d, %d, %d) = %d", start, end, step, sum);
+
     return 0;
 }
 ```
