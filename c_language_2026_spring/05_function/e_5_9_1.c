@@ -1,4 +1,6 @@
 ﻿
+// Example 5-9-1: 递归函数，拓展
+
 #include <stdio.h>
 
 
@@ -8,7 +10,6 @@ void decomp(int n)
     {
         decomp(n / 10);
         printf("%d\t", n % 10);
-        
     }
 }
 

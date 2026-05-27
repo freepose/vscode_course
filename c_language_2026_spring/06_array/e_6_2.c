@@ -1,33 +1,30 @@
 ﻿
+// find max value
 #include <stdio.h>
-#include <string.h>
 
 #define N 11
 
 int main()
 {
-    int scores[N] = {0}, count = 0;
-    float avg = .0;
+    int scores[N] = {95, 67, 88, 76, 90, 56, 72, 83, 80, 92, 99};
 
-    // memset(scores, 0, sizeof(int) * N);
-
+    float sum = 0;
     for (int i = 0; i < N; i++)
     {
-        scanf("%d", &scores[i]);
-        avg += scores[i];
+        // scanf("%d", &scores[i]);
+       sum += scores[i];
     }
-    avg /= N;
+ 
+    float avg = sum * 1.0 / N;
+    printf("average score = %.2f\n", avg);
 
     for (int i = 0; i < N; i++)
     {
         if (scores[i] > avg)
         {
-            count++;
+            printf("scores[%d] = %d\n", i, scores[i]);
         }
     }
-
-    printf("average = %f\n", avg);
-    printf("count = %d\n", count);
 
     return 0;
 }
