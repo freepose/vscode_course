@@ -230,8 +230,24 @@ static int AutoDecide(void) {
     int distToFood = (fIdx - hIdx + N) % N;
     int distToTail = (tIdx - hIdx + N) % N;
 
-    /* ── 级别 1：捷径 ── */
-    if (distToFood > 0 && distToFood < distToTail) {
+    /* ── 级别 1：捷径 ──
+     *
+     * Bug fix: 原判据 `distToFood < distToTail` 隐含假设“蛇身沿
+     * Hamilton 回路从尾到头连续排列”。这个不变量仅在开局成立——
+     * 一旦走过第一条捷径，蛇身就不再与回路连续对齐，尾节在回路上
+     * 的索引 tIdx 完全可能恰好落在 hIdx 的“正后方一格”，从而
+     * distToTail = 1。此后任何 distToFood (>=1) 都不可能小于它，
+     * 捷径分支被永久关闭，蛇只会绕着 Hamilton 回路兜圈而几乎不
+     * 再朝食物冲刺——表现就是“蛇头和蛇尾贴在一起后一直绕圈”。
+     *
+     * 用“空闲格数 N - sLen”作为不依赖蛇身对齐状态的安全余量：
+     *   - 蛇还短时，空闲格远多于 distToTail，shortcut 几乎总被允许；
+     *   - 蛇接近铺满棋盘时，空闲格变小，自然退回 distToTail 主导，
+     *     仍然保留经典 Hamilton 安全性。
+     */
+    int freeCells = N - sLen;
+    int safeDist  = (distToTail > freeCells) ? distToTail : freeCells;
+    if (distToFood > 0 && distToFood < safeDist) {
         int fd = BfsDir(snake[0].x, snake[0].y,
                         food.x, food.y, sLen);
         if (fd != -1) return fd;
