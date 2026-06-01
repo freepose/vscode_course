@@ -114,6 +114,33 @@ int main()
 
 ```
 
+二维数组传递给函数时，传递的也是数组的地址，即指针。比如：
+```c
+
+#include <stdio.h>
+
+void printMatrix(int (*matrix)[3], int rows)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d ", matrix[i][j]); // 使用指针访问二维数组元素
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}}; // 定义一个二维数组
+    printMatrix(matrix, 2); // 将二维数组名作为实参传递给函数
+
+    return 0;
+}
+
+```
+
 
 函数名也是一个指针常量，指向函数的入口地址。比如，
 ```c
@@ -157,6 +184,3 @@ int main()
 }
 
 ```
-
-
-
