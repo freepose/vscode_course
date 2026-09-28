@@ -14,16 +14,15 @@
 
 //     return 0;
 // }
+
 #include <stdio.h>
+#define MA(x, y) (x) * (y)
 
 int main()
 {
-    char *strs[] = {"Hello", "World", "C", "Programming"}; // 定义一个指针字符串数组
-
-    for (int i = 0; i < 4; i++)
-    {
-        printf("%s ", strs[i]); // 输出指针字符串数组的元素
-    }
-
+    int i = 2;
+    i = 3 / MA(i, i + 2) + 5;
+    printf("%d\n", i);
+    
     return 0;
 }
