@@ -3,14 +3,12 @@
 
 int main()
 {
-    int n = 120;
+    int n = 123, mod = 2;
 
     do {
-        printf("%d\t", n % 10);
-        n /= 10;
+        printf("%d\t", n % mod);
+        n /= mod;
     } while (n > 0);
-
-    
 
     return 0;
 }

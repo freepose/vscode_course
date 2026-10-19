@@ -8,12 +8,9 @@ int main()
     while (i <= n)
     {
         sum += i;
-        printf("i = %d, sum = %d\n", sum);
         i ++;
     }
-
     printf("%d\n", sum);
-    
 
     return 0;
 }
