@@ -1,6 +1,6 @@
 ﻿
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h> 
 
 void print_upper(int n)
 {
@@ -30,7 +30,7 @@ void print_upper(int n)
 
 int main()
 {
-    int n = 9;
+    int n = 9, j_max, k_max;
 
     // print_upper(n);
 
@@ -48,13 +48,13 @@ int main()
     for (int i = 1; i <= n; i++)
     {
         // k_max + j_max = mid
-        int k_max = abs(i - mid);
+        k_max = abs(i - mid);
         for (int k = 1; k <= k_max; k++)
         {
             printf(" ");
         }
 
-        int j_max = 2 * (mid - k_max) - 1;
+        j_max = 2 * (mid - k_max) - 1;
         for (int j = 1; j <= j_max; j++)
         {
             if (j == 1 || j == j_max)
