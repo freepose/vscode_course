@@ -3,7 +3,7 @@
 
 int main()
 {
-    int n = 123, mod = 2;
+    int n = 123, mod = 8;
 
     do {
         printf("%d\t", n % mod);
